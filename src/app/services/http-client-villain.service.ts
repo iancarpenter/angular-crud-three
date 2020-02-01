@@ -30,9 +30,10 @@ export class HttpClientVillainService extends VillainsService {
     );
   }
 
-  addVillain(name: string, episode: string): Observable<Villain> {
-    const villain = { name, episode };
-
+  addVillain(id: number, name: string, episode: string): Observable<Villain> {
+    
+    const villain = { id, name, episode };
+    
     return this.http.post<Villain>(this.villainsUrl, villain, cudOptions).pipe(
       catchError(this.handleError)
     );
