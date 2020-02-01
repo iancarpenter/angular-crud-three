@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClientVillainService } from 'src/app/services/http-client-villain.service';
 import { Villain } from 'src/app/classes/villain';
-
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-list-villains',
@@ -12,7 +12,8 @@ export class ListVillainsComponent implements OnInit {
 
   villains: Villain[] = [];
 
-  constructor(private villainService: HttpClientVillainService) { }
+  constructor(private villainService: HttpClientVillainService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getVillains();
@@ -24,5 +25,8 @@ export class ListVillainsComponent implements OnInit {
     });    
   }
 
+  toCreateVillain() {
+    this.router.navigateByUrl("/createvillain");
+  }
 
 }
