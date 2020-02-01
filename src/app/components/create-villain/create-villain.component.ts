@@ -32,4 +32,5 @@ export class CreateVillainComponent {
       this.router.navigateByUrl("/");
     }
   }
+
 }
