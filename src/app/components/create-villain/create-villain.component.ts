@@ -23,13 +23,14 @@ export class CreateVillainComponent implements OnDestroy {
               private router: Router) { }
 
   ngOnDestroy(): void {
-    this.villainSubscription.unsubscribe();
+    if (this.villainSubscription) {
+      this.villainSubscription.unsubscribe();
+    }    
   }              
 
   createVillain() {
 
-    if (this.createVillainForm.valid) {
-      
+    if (this.createVillainForm.valid) {      
       const id = this.createVillainForm.get('id').value;
       const name = this.createVillainForm.get('name').value;
       const episode = this.createVillainForm.get('episode').value;
